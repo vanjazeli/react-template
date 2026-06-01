@@ -1,0 +1,11 @@
+# Generated files
+src/setup/routeTree.gen.ts
+src/setup/i18n/i18n.types.d.ts
+public/mockServiceWorker.js
+.tanstack
+
+# Dependencies
+node_modules
+
+# Build output
+dist

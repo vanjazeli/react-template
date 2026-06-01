@@ -1,0 +1,4 @@
+@theme {
+  --font-sans: system-ui, sans-serif;
+  --font-mono: ui-monospace, monospace;
+}

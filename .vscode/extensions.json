@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "bradlc.vscode-tailwindcss",
+    "cardinal90.multi-cursor-case-preserve",
+    "formulahendry.auto-rename-tag",
+    "eamodio.gitlens"
+  ]
+}

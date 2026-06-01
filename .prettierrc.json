@@ -1,0 +1,26 @@
+{
+  "semi": false,
+  "trailingComma": "es5",
+  "singleQuote": true,
+  "printWidth": 140,
+  "tabWidth": 2,
+  "useTabs": false,
+  "arrowParens": "avoid",
+  "endOfLine": "lf",
+  "plugins": ["@ianvs/prettier-plugin-sort-imports", "prettier-plugin-tailwindcss"],
+  "importOrder": [
+    "^react$",
+    "^react-dom$",
+    "",
+    "<THIRD_PARTY_MODULES>",
+    "",
+    "^@common/(.*)$",
+    "",
+    "^@features/(.*)$",
+    "",
+    "^@setup/(.*)$",
+    "",
+    "^[./]"
+  ],
+  "importOrderTypeScriptVersion": "5.0.0"
+}

@@ -1,0 +1,8 @@
+* {
+  scrollbar-width: thin;
+}
+
+::selection {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://unpkg.com/knip@6/schema.json",
+  "entry": ["index.html", "src/**/*.handler.ts"],
+  "project": ["src/**/*.{ts,tsx}"],
+  "ignoreExportsUsedInFile": true,
+  "ignoreDependencies": ["tailwindcss", "tw-animate-css", "fast-glob"],
+  "paths": {
+    "@common/*": ["src/common/*"],
+    "@features/*": ["src/features/*"],
+    "@setup/*": ["src/setup/*"]
+  },
+  "ignoreIssues": {
+    "src/common/components/**": ["exports", "types", "nsExports", "nsTypes", "enumMembers", "classMembers"],
+    "**/*.d.ts": ["files"]
+  }
+}
