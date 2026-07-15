@@ -20,9 +20,6 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@common': path.resolve(__dirname, './src/common'),
-      '@features': path.resolve(__dirname, './src/features'),
-      '@setup': path.resolve(__dirname, './src/setup'),
       '@': path.resolve(__dirname, './src'),
     },
   },

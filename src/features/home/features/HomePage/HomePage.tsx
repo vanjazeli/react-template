@@ -1,5 +1,6 @@
-import { Typography } from '@/common/components/atoms/Typography/Typography'
 import { Link } from '@tanstack/react-router'
+
+import { Typography } from '@/common/components/atoms/Typography/Typography'
 
 export const HomePage = () => {
   return (

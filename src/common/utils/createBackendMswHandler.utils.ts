@@ -1,6 +1,6 @@
 import { http, delay as mswDelay, type DefaultBodyType, type HttpResponseResolver } from 'msw'
 
-import { BACKEND_URL } from '@common/consts/endpoints.consts'
+import { BACKEND_URL } from '@/common/consts/endpoints.consts'
 
 type HttpMethodT = 'get' | 'post' | 'put' | 'patch' | 'delete' | 'options' | 'head'
 

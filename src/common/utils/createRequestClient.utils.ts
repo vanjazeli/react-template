@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import { BACKEND_URL } from '@common/consts/endpoints.consts'
+import { BACKEND_URL } from '@/common/consts/endpoints.consts'
 
 export const createRequestClient = () => {
   const requestClient = axios.create({

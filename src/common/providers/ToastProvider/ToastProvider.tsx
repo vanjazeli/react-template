@@ -1,7 +1,7 @@
 import { useTheme } from 'next-themes'
 import { Toaster, type ToasterProps } from 'sonner'
 
-import type { ProviderPropsT } from '@common/types/props/ProviderProps.types'
+import type { ProviderPropsT } from '@/common/types/props/ProviderProps.types'
 
 export const ToastProvider = ({ children }: ProviderPropsT) => {
   const { theme = 'system' } = useTheme()

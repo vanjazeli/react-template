@@ -1,7 +1,7 @@
-import { MainLayout } from '@/common/components/templates/MainLayout/MainLayout'
 import { createRootRoute, Outlet } from '@tanstack/react-router'
 
-import { AppProvider } from '@common/providers/AppProvider/AppProvider'
+import { MainLayout } from '@/common/components/templates/MainLayout/MainLayout'
+import { AppProvider } from '@/common/providers/AppProvider/AppProvider'
 
 export const Route = createRootRoute({
   component: () => (

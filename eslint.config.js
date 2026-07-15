@@ -3,7 +3,7 @@ import { join } from 'path'
 
 import js from '@eslint/js'
 import pluginQuery from '@tanstack/eslint-plugin-query'
-import importPlugin from 'eslint-plugin-import'
+import { importX } from 'eslint-plugin-import-x'
 import perfectionist from 'eslint-plugin-perfectionist'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
@@ -52,10 +52,10 @@ const featuresBarrelFileEnforcement = {
   meta: {
     type: 'problem',
     docs: {
-      description: 'Imports from @features/ outside of src/features must go through an index.ts barrel file',
+      description: 'Imports from @/features/ outside of src/features must go through an index.ts barrel file',
     },
     messages: {
-      mustUseFeatureIndex: 'Import "@features/{{imported}}" must go through an index.ts barrel file.',
+      mustUseFeatureIndex: 'Import "@/features/{{imported}}" must go through an index.ts barrel file.',
     },
   },
   create(context) {
@@ -64,11 +64,11 @@ const featuresBarrelFileEnforcement = {
         const importPath = node.source.value
         const filePath = context.filename || context.getFilename()
 
-        if (!importPath.startsWith('@features/')) return
+        if (!importPath.startsWith('@/features/')) return
 
         if (filePath.startsWith(featuresDir + '/') || filePath.startsWith(featuresDir + '\\')) return
 
-        const importRelative = importPath.slice('@features/'.length)
+        const importRelative = importPath.slice('@/features/'.length)
         const normalizedImport = importRelative.replace(/\/index(\.[a-z]+)?$/i, '')
         const importAbsPath = join(featuresDir, ...normalizedImport.split('/'))
 
@@ -123,7 +123,7 @@ const noFeatureBoundaryViolations = {
         const importPath = node.source.value
         const filePath = context.filename || context.getFilename()
 
-        if (!importPath.startsWith('@features/')) return
+        if (!importPath.startsWith('@/features/')) return
 
         const fileAfterFeatures = filePath.match(/[\\/]features[\\/](.+)/)
         if (!fileAfterFeatures) return
@@ -131,7 +131,7 @@ const noFeatureBoundaryViolations = {
         const fileSegments = toFeatureDomainSegments(fileAfterFeatures[1])
         if (fileSegments.length === 0) return
 
-        const importSegments = toFeatureDomainSegments(importPath.replace('@features/', ''))
+        const importSegments = toFeatureDomainSegments(importPath.replace('@/features/', ''))
         if (importSegments.length === 0) return
 
         let commonLen = 0
@@ -174,7 +174,7 @@ export default defineConfig([
       },
     },
     plugins: {
-      import: importPlugin,
+      'import-x': importX,
       perfectionist: perfectionist,
       'react-hooks': reactHooks,
       'unused-imports': unusedImports,
@@ -186,7 +186,7 @@ export default defineConfig([
       },
     },
     settings: {
-      'import/resolver': {
+      'import-x/resolver': {
         typescript: {
           alwaysTryTypes: true,
           project: './tsconfig.app.json',
@@ -195,7 +195,7 @@ export default defineConfig([
           extensions: ['.js', '.jsx', '.ts', '.tsx'],
         },
       },
-      'import/parsers': {
+      'import-x/parsers': {
         '@typescript-eslint/parser': ['.ts', '.tsx'],
       },
     },
@@ -287,7 +287,7 @@ export default defineConfig([
         },
       ],
       '@typescript-eslint/no-empty-interface': 'error',
-      'import/no-cycle': [
+      'import-x/no-cycle': [
         'error',
         {
           maxDepth: 10,
@@ -316,12 +316,16 @@ export default defineConfig([
           patterns: [
             {
               group: ['../*', './*'],
-              message: 'Use absolute imports (@common/*, @features/*, @setup/*) instead of relative imports.',
+              message: 'Use absolute imports (@/common/*, @/features/*, @/setup/*) instead of relative imports.',
+            },
+            {
+              group: ['@common/*', '@features/*', '@setup/*'],
+              message: 'Use the @/ prefix style (@/common/*, @/features/*, @/setup/*) instead of @common/*, @features/*, or @setup/*.',
             },
           ],
         },
       ],
-      'import/no-restricted-paths': [
+      'import-x/no-restricted-paths': [
         'error',
         {
           zones: [

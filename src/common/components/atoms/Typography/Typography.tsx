@@ -2,7 +2,7 @@ import type { ElementType, HTMLAttributes } from 'react'
 
 import { cva, type VariantProps } from 'class-variance-authority'
 
-import { cn } from '@common/utils/cn.utils'
+import { cn } from '@/common/utils/cn.utils'
 
 export type TypographyVariantT = 'h1' | 'h2' | 'h3' | 'h4' | 'p' | 'span' | 'small' | 'blockquote' | 'code'
 

@@ -26,10 +26,7 @@
 
     /* Path Aliases */
     "paths": {
-      "@/*": ["./src/*"],
-      "@common/*": ["./src/common/*"],
-      "@features/*": ["./src/features/*"],
-      "@setup/*": ["./src/setup/*"]
+      "@/*": ["./src/*"]
     }
   },
   "include": ["src"]

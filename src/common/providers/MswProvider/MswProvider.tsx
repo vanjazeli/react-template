@@ -1,6 +1,6 @@
 import { useLayoutEffect, useState } from 'react'
 
-import type { ProviderPropsT } from '@common/types/props/ProviderProps.types'
+import type { ProviderPropsT } from '@/common/types/props/ProviderProps.types'
 
 export const MswProvider = ({ children }: ProviderPropsT) => {
   const [isReady, setIsReady] = useState(false)
@@ -8,7 +8,7 @@ export const MswProvider = ({ children }: ProviderPropsT) => {
   useLayoutEffect(() => {
     const start = async () => {
       if (import.meta.env.DEV && import.meta.env.VITE_MSW_ENABLED === 'true') {
-        const { WORKER } = await import('@common/providers/MswProvider/MswProvider.consts')
+        const { WORKER } = await import('@/common/providers/MswProvider/MswProvider.consts')
 
         await WORKER.start({
           onUnhandledRequest: 'bypass',

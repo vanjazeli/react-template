@@ -1,6 +1,6 @@
 import type { ComponentProps, ElementType } from 'react'
 
-import { cn } from '@common/utils/cn.utils'
+import { cn } from '@/common/utils/cn.utils'
 
 type TagT = 'div' | 'ul' | 'ol' | 'li' | 'nav' | 'section' | 'main' | 'aside' | 'span'
 
