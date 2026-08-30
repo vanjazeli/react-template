@@ -12,6 +12,7 @@ Before generating any screens or features with Claude Design, first create a **D
   - **Colors** — the color palette/tokens (including states like hover/disabled, semantic colors like success/error/warning).
   - **Spacing** — the spacing scale used across layouts and components.
   - Anything else that belongs at the foundation level, e.g. border radii, shadows/elevation, breakpoints, icon sizes.
+  - **Breakpoints** — only two: `mobile` and `desktop`. There is no separate tablet breakpoint/design — tablet-sized viewports fall into the `mobile` breakpoint and get the mobile layout.
 
 ### 2. Feature/screen designs (after the design system exists)
 
