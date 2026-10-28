@@ -4,19 +4,19 @@ import { BACKEND_URL } from '@/common/consts/endpoints.consts'
 
 type HttpMethodT = 'get' | 'post' | 'put' | 'patch' | 'delete' | 'options' | 'head'
 
-type CreateBackendMswHandlerOptionsT<DtoT extends DefaultBodyType> = {
+type CreateMswHandlerOptionsT<DtoT extends DefaultBodyType> = {
   url: string
   method: HttpMethodT
   handler: HttpResponseResolver<never, never, DtoT>
   delay?: number
 }
 
-export const createBackendMswHandler = <DtoT extends DefaultBodyType = DefaultBodyType>({
+export const createMswHandler = <DtoT extends DefaultBodyType = DefaultBodyType>({
   url,
   method,
   handler,
   delay = 1000,
-}: CreateBackendMswHandlerOptionsT<DtoT>) => {
+}: CreateMswHandlerOptionsT<DtoT>) => {
   const fullUrl = `${BACKEND_URL}/${url.replace(/^\//, '')}`
 
   const wrappedHandler: HttpResponseResolver<never, never, DtoT> = async input => {
