@@ -5,7 +5,7 @@ import { tanstackRouter } from '@tanstack/router-plugin/vite'
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 
-import { i18nTypesPlugin } from './src/setup/i18n/i18n-types-plugin'
+import { i18nTypesPlugin } from './src/setup/i18n/i18n-types-plugin.ts'
 
 export default defineConfig({
   plugins: [
@@ -20,7 +20,7 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      '@': path.resolve(import.meta.dirname, './src'),
     },
   },
 })

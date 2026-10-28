@@ -8,7 +8,15 @@ import type { ProviderPropsT } from '@/common/types/props/ProviderProps.types'
 export const AppProvider = ({ children }: ProviderPropsT) => {
   return (
     <MswProvider>
-      <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange
+        // next-themes renders an inline script meant for SSR; in a client-only app it never runs.
+        // A non-JS type stops React 19.3 from warning about it.
+        scriptProps={{ type: 'application/json' }}
+      >
         <QueryProvider>
           <ToastProvider>{children}</ToastProvider>
         </QueryProvider>

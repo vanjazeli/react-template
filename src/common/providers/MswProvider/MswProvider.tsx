@@ -11,7 +11,7 @@ export const MswProvider = ({ children }: ProviderPropsT) => {
         const { WORKER } = await import('@/common/providers/MswProvider/MswProvider.consts')
 
         await WORKER.start({
-          onUnhandledRequest: 'bypass',
+          onUnhandledFrame: 'bypass',
           quiet: true,
         })
 
