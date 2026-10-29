@@ -12,6 +12,7 @@ node_modules
 .claude
 .env
 .tanstack
+src/common/components/ui
 dist
 dist-ssr
 *.local

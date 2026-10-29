@@ -161,7 +161,14 @@ const noFeatureBoundaryViolations = {
 
 export default defineConfig([
   ...pluginQuery.configs['flat/recommended'],
-  globalIgnores(['dist', '.tanstack', 'src/setup/routeTree.gen.ts', 'src/setup/i18n/i18n.types.d.ts', 'public/mockServiceWorker.js']),
+  globalIgnores([
+    'dist',
+    '.tanstack',
+    'src/common/components/ui',
+    'src/setup/routeTree.gen.ts',
+    'src/setup/i18n/i18n.types.d.ts',
+    'public/mockServiceWorker.js',
+  ]),
   {
     files: ['**/*.{ts,tsx}'],
     extends: [js.configs.recommended, tseslint.configs.recommended, reactRefresh.configs.vite],
@@ -321,6 +328,11 @@ export default defineConfig([
             {
               group: ['@common/*', '@features/*', '@setup/*'],
               message: 'Use the @/ prefix style (@/common/*, @/features/*, @/setup/*) instead of @common/*, @features/*, or @setup/*.',
+            },
+            {
+              group: ['@/common/components/ui', '@/common/components/ui/*'],
+              message:
+                'Do not import from components/ui. Move the component into the matching components subfolder (atoms, molecules, organisms or templates), align it with to fit the project conventions, and import it from there.',
             },
           ],
         },
